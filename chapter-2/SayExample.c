@@ -15,5 +15,6 @@ int main(int argc, char *argv[]){
   rc = NewSpeechChannel(&vs, &channel);
   rc = SpeakText(channel, text, strlen(text));
   if(rc) { fprintf(stderr, "Unable to speak!/n"); exit(1);}
-   exit(0);
+  while(SpeechBusy()) sleep(1);
+  exit(0);
 }
